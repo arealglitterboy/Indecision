@@ -1,76 +1,53 @@
-.ReactModalPortal {
-    > div {
-        opacity: 0;
-    }
-    .ReactModal__Overlay {
-        display: flex;
-
-        place-items: center;
-        place-content: center;
-        
-        transition: opacity 200ms ease-out;
-
-        &--after-open {
-            opacity: 1;
-        }
-        &--before-close {
-            opacity: 0;
-        }
-    }
-}
-
-.modal {
+.option-popup {
     $bg-col: $primary-1;
     
-    width: max-content;
-    font-size: 1.25em;
-    max-width: 30em;
-    padding: 0.2em 0.3em;
-
-    text-align: center;
-
     background-color: $bg-col;
     color: $primary-3;
     border-radius: $borer-radius;
     outline: none;
     box-shadow: $shadow;
 
-    &__header {
-        font-family: $ff-accent;
-        font-weight: 900;
-        font-size: 2.5em;
+    &__content {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1.75rem;
+        
+        &__header {
+            font: 700 2.25em/1 $ff-accent;
+            position: relative;
 
-        padding: 0.25em 0.75em 0.1em;
-    }
-
-    &__line {
-        width: 90%;
-        margin: 0 auto;
-        border-width: 0.05em;
-        margin-block: 0.25em 0.75em;
-    }
-
-    &__body {
-        font-size: 1.25em;;
-
-        margin: 1em 0.4em;
-        padding-inline: 0.25em;
-
-        word-break: break-all;
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 100%;
+                margin-top: 0.5rem;
+                border-bottom: 2px solid lighten($primary-3, 70%);
+            }
+        }
+    
+        &__body {
+            font-size: 1.2em;
+        }
+    
     }
 
     &__button {
-        font: 500 1.4em/1 $ff-accent;
+        font: 450 1.25rem/1 $ff-primary;
         color: $bg-col;
+        background-color: $accent-1;
 
-        margin-block: 0.25em;
-        padding: 0.3em 0.5em;
-
+        padding: 0.5em 1.25em;
 
         border-radius: $borer-radius;
         border-bottom-width: 0.1em;
         border-bottom-style: solid;
+        border-bottom-color: darken($accent-1, 30%);
 
         transition: background-color 0.1s ease-in-out;
+
+        &:not([disabled]):hover {
+            background-color: lighten(saturate($accent-1, 10%), 5%);
+        }
     }
 }

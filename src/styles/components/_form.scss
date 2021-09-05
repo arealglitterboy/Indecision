@@ -1,6 +1,4 @@
 .add-option {
-    border-bottom-left-radius: $borer-radius;
-
     &__form {
         display: flex;
         flex-direction: column;
@@ -27,11 +25,20 @@
             outline: none;
             
             padding-inline: 1em;
+
+            &::placeholder {
+                color: lighten($text, 50%);
+                font-style: italic;
+                font-weight: 350;
+            }
         }
 
         &__button {
-            font-size: 1.5em;
-            width: 5.5em;
+            --fancy-button--main: hsl(194, 90%, 33%);
+    
+            background-color: hsl(194, 100%, 20%);
+            font: 500 1.7rem/1 'Roboto';
+            color: #fff;
         }
     }
 }

@@ -11,22 +11,24 @@
     gap: 1em;
    
     &__index {
-        font-weight: 500;
-        font-size: 1.25em;
+        font: 500 italic 1.15em/1 $ff-primary;
         color: lighten($text, 40%);
+
+        &::after {
+            content: '.';
+            color: inherit;
+        }
     }
 
-    &__option-text {
-        max-height: 3.2em;
+    &__text {
         padding: 0.1em;
         flex-grow: 1;
         
         font-weight: 400;
-        overflow: auto;
         line-height: 1;
     }
 
-    &__remove-option {
+    &__remove {
         font-size: 0.9em;
         font-family: 'Rubik';
         font-weight: 600;
@@ -34,7 +36,7 @@
         text-align: center;
 
         color: rgba($text, 0.3);
-        background-color: #00000000;
+        background: none;
         
         transition: all 150ms ease-out;
 

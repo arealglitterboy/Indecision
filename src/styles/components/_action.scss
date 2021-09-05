@@ -1,0 +1,15 @@
+.action {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    height: min-content;
+    margin-block: 1rem 2.5rem;
+    
+    &__button {
+        --fancy-button--main: #3C91E6;
+    
+        background-color: darken($accent-1, 20%);
+        color: #fff;
+        font: 500 1.75em/1 $ff-accent;
+    }
+}

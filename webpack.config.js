@@ -1,23 +1,27 @@
+const webpack = require('webpack');
 const path = require('path');
-const public = path.join(__dirname, 'public');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: path.join(__dirname, "src", "app.js"),
+    // entry: './src/app.js',
     output: {
-        path: public,
+        path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx'],
     },
     module: {
         rules: [{
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                    plugins: ['@babel/plugin-proposal-class-properties']
-                }
-            }
+            use: ["babel-loader"]
+            // use: {
+            //     loader: 'babel-loader',
+            //     options: {
+            //         presets: ['@babel/preset-env', '@babel/preset-react']
+            //     }
+            // }
         }, {
             test: /\.s?css$/,
             use: [
@@ -26,13 +30,18 @@ module.exports = {
             {
                 loader: 'sass-loader',
                 options: {
-                    implementation: require('dart-sass')
+                    implementation: require('sass')
                 }
-            }]
+            }
+        ]
         }]
     },
     devtool: 'eval-cheap-module-source-map',
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     devServer: {
-        contentBase: public
+        static: {
+            directory: path.join(__dirname, 'public'),
+        }
+        // contentBase: path.join(__dirname, 'public')
     }
 };

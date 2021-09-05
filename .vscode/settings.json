@@ -1,7 +1,6 @@
 {
-    "compile-hero.disable-compile-files-on-did-save-code": true,
     "files.associations": {
-        "*.js": "javascriptreact"
+        "*.jsx": "javascriptreact"
     },
     "terminal.integrated.lineHeight": 1.1,
     "terminal.integrated.fontSize": 13

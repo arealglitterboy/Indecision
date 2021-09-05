@@ -1,5 +1,7 @@
 import React from 'react';
 
+import FancyButton from './FancyButton';
+
 export default class AddOption extends React.Component {
     state = {
         error: undefined
@@ -7,14 +9,13 @@ export default class AddOption extends React.Component {
 
     render() {
         return (
-            <div className="add-option">
+            <footer className="add-option">
                 {(this.state.error && <p className="error">{this.state.error}</p>)}
                 <form onSubmit={this.handleSubmit} className="add-option__form">
-                    <input type="text" className="add-option__form__input" name="option" placeholder="Insert an option here"/>
-                    {/* <span contentEditable="true" className="add-option__form__input">Insert an option here</span> */}
-                    <button className="add-option__form__button action-button button">Add</button>
+                    <input type="text" className="add-option__form__input" name="option" placeholder="What do you need to do?"/>
+                    <FancyButton className="add-option__form__button" text="Add" />
                 </form>
-            </div>
+            </footer>
         );
         // * input element has name 'option'
     }
