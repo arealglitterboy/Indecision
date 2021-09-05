@@ -1,0 +1,38 @@
+.main-button-holder {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    height: min-content;
+    margin-block: 1rem 2.5rem;
+    
+    .action-button {
+        font: 700 2.1em/1 $ff-accent;
+    }
+}
+
+.button {
+    font: 500 1.25em/1 $ff-accent;
+
+    padding: 0.45em;
+
+    border-radius: $borer-radius;
+    border-bottom-width: 0.1em;
+    border-bottom-style: solid;
+
+    transition: background-color 0.1s ease-in-out;
+}
+
+.action-button {
+    background-color: $accent-1;
+    color: white;
+    border-bottom-color: desaturate(darken($accent-1, 15%), 15%);
+
+    &:disabled {
+        opacity: 0.4;
+        background-color: desaturate($accent-1, 25%);
+    }
+
+    &:hover:not(:disabled) {
+        background-color: desaturate(darken($accent-1, 5%), 20%);
+    }
+}

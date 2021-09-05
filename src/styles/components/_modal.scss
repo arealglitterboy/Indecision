@@ -1,0 +1,76 @@
+.ReactModalPortal {
+    > div {
+        opacity: 0;
+    }
+    .ReactModal__Overlay {
+        display: flex;
+
+        place-items: center;
+        place-content: center;
+        
+        transition: opacity 200ms ease-out;
+
+        &--after-open {
+            opacity: 1;
+        }
+        &--before-close {
+            opacity: 0;
+        }
+    }
+}
+
+.modal {
+    $bg-col: $primary-1;
+    
+    width: max-content;
+    font-size: 1.25em;
+    max-width: 30em;
+    padding: 0.2em 0.3em;
+
+    text-align: center;
+
+    background-color: $bg-col;
+    color: $primary-3;
+    border-radius: $borer-radius;
+    outline: none;
+    box-shadow: $shadow;
+
+    &__header {
+        font-family: $ff-accent;
+        font-weight: 900;
+        font-size: 2.5em;
+
+        padding: 0.25em 0.75em 0.1em;
+    }
+
+    &__line {
+        width: 90%;
+        margin: 0 auto;
+        border-width: 0.05em;
+        margin-block: 0.25em 0.75em;
+    }
+
+    &__body {
+        font-size: 1.25em;;
+
+        margin: 1em 0.4em;
+        padding-inline: 0.25em;
+
+        word-break: break-all;
+    }
+
+    &__button {
+        font: 500 1.4em/1 $ff-accent;
+        color: $bg-col;
+
+        margin-block: 0.25em;
+        padding: 0.3em 0.5em;
+
+
+        border-radius: $borer-radius;
+        border-bottom-width: 0.1em;
+        border-bottom-style: solid;
+
+        transition: background-color 0.1s ease-in-out;
+    }
+}

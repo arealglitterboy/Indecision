@@ -1,0 +1,79 @@
+.add-option {
+    border-bottom-left-radius: $borer-radius;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        
+        place-content: center;
+        place-items: center;
+        gap: 1em;
+
+        padding-inline: 1em;
+        margin-block: 1em;
+
+        border-bottom-left-radius: $borer-radius;
+
+        &__input {
+            flex-grow: 1;
+            
+            width: 100%;
+            height: max-content;
+            
+            font-weight: 400;
+            font-size: 1.3em;
+            
+            border: none;
+            outline: none;
+            
+            padding-inline: 1em;
+        }
+
+        &__button {
+            font-size: 1.5em;
+            width: 5.5em;
+        }
+    }
+}
+
+.form-with-button {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    place-items: center;
+    gap: 1em;
+
+    padding-inline: 1em;
+    margin-bottom: 1em;
+
+    border-bottom-left-radius: $borer-radius;
+
+    input {
+        flex-grow: 1;
+        border: none;
+        font-weight: 400;
+        font-size: 1.4em;
+        height: max-content;
+
+        padding-inline: 1em;
+    }
+}
+
+.error {
+    font: 400 italic 1.35em/1 $ff-primary;
+    margin: 0.25em 1em;
+
+    &::before {
+        content: '!';
+        display: inline-grid;
+        place-content: center;
+        height: 1.75em;
+        width: 1.75em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        background-color: $accent-3;
+        color: $primary-1;
+        border-radius: 50%;
+        font: 600 italic 1rem/1 $ff-accent;
+    }
+}

@@ -1,0 +1,25 @@
+.main {
+    width: 100vw;
+    max-width: 50rem;
+    
+    display: grid;
+    margin: 0 auto;
+    padding: 0.5em;
+
+    transition: font-size 200ms ease-in-out;
+}
+
+@media (min-width: 450px) {
+    .main {
+        font-size: 1.1rem;
+    }
+    .add-option .add-option__form {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 600px) {
+    .main {
+        font-size: 1.3rem;
+    }
+}
