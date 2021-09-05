@@ -4,13 +4,13 @@ import AddOption from './AddOption';
 import Options from './Options';
 import Action from './Action';
 import Header from './Header';
-import OptionModal from './OptionModal';
+import popup from './OptionPopup';
+import OptionsHeader from './OptionsHeader';
 
 export default class IndecisionApp extends React.Component {
     state = {
-        subtitle: 'For when you are like, "ehhhh no" about making decisions!',
-        options: [],
-        selectedOption: undefined
+        subtitle: 'Get some decisiveness in your life!',
+        options: []
     };
 
     render() {
@@ -21,18 +21,17 @@ export default class IndecisionApp extends React.Component {
                     hasOptions={this.state.options.length > 0}
                     handleSelection={this.handleSelection}
                 />
-                <section className="widget-container">
+                <article className="widget-container">
+                    <OptionsHeader 
+                        hasOptions={this.state.options}
+                        handleDeleteOptions={this.handleDeleteOptions}
+                    />
                     <Options
                         options={this.state.options}
-                        handleDeleteOptions={this.handleDeleteOptions}
                         handleDeleteOption={this.handleDeleteOption}
                     />
                     <AddOption handleAddOption={this.handleAddOption} />
-                    <OptionModal
-                        selectedOption={this.state.selectedOption}
-                        handleClearSelectedOption={this.handleClearSelectedOption}
-                    />
-                </section>
+                </article>
             </main>
         )
     }
@@ -59,14 +58,9 @@ export default class IndecisionApp extends React.Component {
     handleSelection = () => {
         if (this.state.options && this.state.options.length > 0) {
             const rand = Math.floor(Math.random() * this.state.options.length);
-
-            this.setState(() => ({ selectedOption: this.state.options[rand] }));
+            popup(this.state.options[rand]);
         }
     };
-
-    handleClearSelectedOption = () => {
-        this.setState(() => ({ selectedOption: undefined }));
-    }
 
     componentDidMount = () => {
         try {

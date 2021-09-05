@@ -32,15 +32,11 @@
             }
     
             &__button {
-                font-size: 1.25em;
-                font-weight: 500;
-                background-color: $accent-3;
-                border-bottom-color: desaturate(darken($accent-3, 15%), 15%);
-                color: $background;
+                --fancy-button--main: #ff5964;
     
-                &:hover {
-                    background-color: desaturate(darken($accent-3, 5%), 20%);
-                }
+                background-color: desaturate(darken(#ff5964, 20%), 30%);
+                color: #fff;
+                font: 500 1.25em/1 $ff-accent;
             }
         }
     }
